@@ -12,16 +12,21 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-light bg-dark">
+    <nav class="navbar navbar-dark bg-dark">
         <h1>Миссия Колонизация Марса</h1>
+
+        {% if current_user.is_authenticated %}
+        <a class="navbar-brand" href="/logout">{{ current_user.name }} {{ current_user.surname }}</a>
+        {% else %}
+        <p>
+            <a class="btn btn-primary " href="/register">Register</a>
+            <a class="btn btn-success" href="/login">Log in</a>
+        </p>
+        {% endif %}
         <a class="navbar-brand" href="#">Mars One</a>
     </nav>
-    <form>
-        <input type="button"  onclick="window.location.href='/login';" value="Авторизация" />
-        <input type="button"  onclick="window.location.href='/register';" value="Регистрация" />
-        <input type="button"  onclick="window.location.href='/addjob';" value="Добавить работу" />
-        <input type="button"  onclick="window.location.href='/jobs/<int:id>;" value="Редактировать работу" />
-</form>
+
+
     <h4><i>И на Марсе будут яблони цвести!</i></h4>
 </header>
 <!-- Begin page content -->
