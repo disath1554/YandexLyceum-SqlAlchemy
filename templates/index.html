@@ -2,18 +2,24 @@
 
 {% block content %}
 <meta charset="UTF-8">
-<h2 align="center">Works log</h2>
-
+<h2 align="center">Список работ</h2>
+<div class="d-flex">
+   <a class="btn btn-warning"  href="/addjob">Новая работа</a></div>
 {% for job in jobs %}
-<h3>Action # {{ job.id }}</h3>
+<div class="d-flex">
+    <div class="p-2 flex-grow-1"><h3>Работа № {{ job.id }}</h3></div>
+    <div class="p-2"><a class="btn btn-success"  href="/jobs/{{ job.id }}"> Редактировать </a></div>
+    <div class="p-2"><a class="btn btn-danger"   href="/job_delete/{{ job.id }}">Удалить </a></div>
+</div>
+
 <div class="table_container">
     <table class="my_table">
         <tr class="my_row">
-            <td class="title" width="400px" bgcolor="#dddddd">Title of activity</td>
-            <td class="title" width="150px" bgcolor="#dddddd">Team leader</td>
+            <td class="title" width="450px" bgcolor="#dddddd">Title of activity</td>
+            <td class="title" width="200px" bgcolor="#dddddd">Team leader</td>
             <td class="title" width="100px" bgcolor="#dddddd" align="center">Duration</td>
             <td class="title" width="200px" bgcolor="#dddddd" align="center">List of collaborators</td>
-            <td class="title" width="100px" bgcolor="#dddddd" align="center">Is finished</td>
+            <td class="title" width="150px" bgcolor="#dddddd" align="center">Is finished</td>
         </tr>
         <tr class="my_row">
             <td class="ordinary" bgcolor="#eeeeff">{{ job.job.capitalize() }}</td>
