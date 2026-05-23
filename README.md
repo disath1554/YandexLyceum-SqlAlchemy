@@ -1,2 +1,2 @@
 # YandexLyceum-SqlAlchemy
-flask
+flask-sqlAlchemy
